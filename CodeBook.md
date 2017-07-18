@@ -1,4 +1,4 @@
-# coursera-get-and-clean-data-project
+# Codebook for the data stored in feature_averages_per_subject_activity.txt
 Course project for Courera's Get and Clean Data class
 
 This repository contains a single script called
@@ -15,9 +15,14 @@ Short description of the project
 
 ## Study design and data processing
 
-### Collection of the raw data Description of how the data was collected.
+### Collection of the raw data.
 
-### Notes on the original (raw) data Some additional notes (if avaialble, otherwise you can leave this section out).
+The data set was downloaded from
+* https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Unzipping the dataset by defualt creates a folder called "UCI HAR Dataset." 
+Within that folder is a README.txt that explains how the raw data was collected and transformed
+to construct the variables. There is no need to duplicated that information here.
 
 ## Creating the tidy datafile
 
