@@ -15,18 +15,43 @@ Short description of the project
 
 ## Study design and data processing
 
+The purpose of this project is to transform a subset of a messy data set into a tidy dataset.
+There is no study design for this project, because no study is conducted.
+
+All of the data manipulations described in this CodeBook can be found in the script
+* run_analysis.R
+Included in the script are the 
+downloading of the original data and the combining of the test and train data sets).
+
 ### Collection of the raw data.
 
-The data set was downloaded from
+The data set is downloaded from
 * https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Unzipping the dataset by defualt creates a folder called "UCI HAR Dataset." 
+Unzipping the data set creates a folder called "UCI HAR Dataset." 
 Within that folder is a README.txt that explains how the raw data was collected and transformed
-to construct the variables. There is no need to duplicated that information here.
+to construct the variables. There is no need to duplicate that information here.
+
+### Combining test and train data
+
+The original data set has two sets of files: training data files and test data files.  
+We combine the test and train data sets using OS level file manipulations (using the "cat" operation on a UNIX-based system). 
+
+The resulting data sets are stored in three files:
+* subject_all.txt
+* X_all.txt
+* y_all.txt
 
 ## Creating the tidy datafile
 
 ### Guide to create the tidy data file Description on how to create the tidy data file (1. download the data, ...)/
+
+Here are the steps taken in run_analysis.R to create the tidy data file:
+1. As described above, the origina. data is downloaded and combined.
+2. Using the list of features in features.txt, a list of all features containing the text "mean()" or "std()" is selected.
+3. The names of the features are altered to make the names more descriptive according to the following string transformations:
+  * mean -> Mean
+  * std -> Std
 
 ### Cleaning of the data Short, high-level description of what the cleaning script does. link to the readme document that describes the code in greater detail
 
