@@ -50,7 +50,7 @@ Here are the steps taken in run_analysis.R to create the tidy data file:
 1. As described above, the original data is downloaded and combined.
 2. Using the list of features in features.txt, a list of feature names containing either "mean()" or "std()" is created (to be used later in step 6).
 3. The feature names are altered to make the names more descriptive according to the following string transformations:
-..* mean -> Mean
+    * mean -> Mean
 ..* std -> Std
 ..*  Acc -> Acceleration
 ..*  Gyro -> AngularVelocity
