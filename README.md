@@ -9,14 +9,14 @@ This repository contains a single script called
 In summary, the script downloads data collected from accelerometers from the Samsung Galaxy S smartphone, and then constructs a tidy dataset as prescribed by the project instructions.  The resulting tidy data set is named
 * feature_averages_per_subject_activity.txt
 
-A detailed description of the tidy data file (feature_averages_per_subject_activity.txt) is givin in [CodeBook.md](CodeBook.md).
+A detailed description of the tidy data file (feature_averages_per_subject_activity.txt) is given in [CodeBook.md](CodeBook.md).
 
 ## Details of the script run_analysis.R
 
 The script downloads the dataset from 
 * https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.  
 
-The training and test data sets are combined using system file manipulations (using the "cat" operation on a Mac). 
+The training and test data sets are combined using system file manipulations (using the "cat" operation on a Mac). The resulting data sets are stored in three files (subject_all.txt, X_all.txt, and y_all.txt).
 
 Here are the steps taken in run_analysis.R to create the tidy data file:
 
