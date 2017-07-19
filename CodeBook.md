@@ -1,17 +1,6 @@
-# Codebook for the data stored in feature_averages_per_subject_activity.txt
-Course project for Courera's Get and Clean Data class
+# CodeBook for the data stored in feature_averages_per_subject_activity.txt
 
-This repository contains a single script called
-* run_analysis.R
-
-In summary, the script downloads data collected from accelerometers from the Samsung Galaxy S smartphone, and then contructs a tidy dataset as prescribed by the project instructions.  The resulting tidy dataset is named
-* feature_averages_per_subject_activity.txt
-
-The script downloads the dataset from 
-* https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-into the working directory.  
-
-Short description of the project
+This is the CodeBook for the course project for Courera's Get and Clean Data class
 
 ## Study design and data processing
 
@@ -71,7 +60,13 @@ The table has 180 rows and 68 columns.
 
 The first two columns are SubjectId and Activity, and each row has a unique (SubjectId,Activity) pair.  There are 30 unique SubjectIds and 6 unique Activities for a total of 30*6=180 rows.  
 
-The remaining columns correspond to the 66 observed variables that involve either a mean or standarda deviation.  The values given in each column is the average of that variable over all observations for that (SubjectId, Activity) pair.
+SubjectId is an integer in the range 1-30.
+
+Activity is a factor with 6 Levels: Walking, WalkingUpstairs, WalkingDownstairs, Sitting, Standing, Laying.
+
+The remaining columns correspond to the 66 observed variables that involve either a mean or a standard deviation.  The values given in each column is the average of that variable over all observations for that (SubjectId, Activity) pair.
+
+Each of the observed variables is a double, normalized to be in the range [-1,1].
 
 Each observed variable has the form
 * DomainFilterVariable[Jerk]MagnitudeStatistic
@@ -83,26 +78,10 @@ where
 * Component is either "X", "Y", "Z", or "Magnitude"
 * Statistic is either "Mean" or "Std"
 
-Not every possible combination allowed by the above rules is used.  The are 128 possible combinations, but only 66 correspond to actual observed variables (columns).
+Not every possible combination allowed by the above rules is used.  There are 128 possible combinations, but only 66 correspond to actual observed variables (columns 3 through 68).
 
-The observed variables (columns) are
+The observed variables (columns 3 through 68) are
 * TimeBodyAccelerationXMean, TimeBodyAccelerationYMean, TimeBodyAccelerationZMean, TimeBodyAccelerationXStd, TimeBodyAccelerationYStd, TimeBodyAccelerationZStd, TimeGravityAccelerationXMean, TimeGravityAccelerationYMean, TimeGravityAccelerationZMean, TimeGravityAccelerationXStd, TimeGravityAccelerationYStd, TimeGravityAccelerationZStd, TimeBodyAccelerationJerkXMean, TimeBodyAccelerationJerkYMean, TimeBodyAccelerationJerkZMean, TimeBodyAccelerationJerkXStd, TimeBodyAccelerationJerkYStd, TimeBodyAccelerationJerkZStd, TimeBodyAngularVelocityXMean, TimeBodyAngularVelocityYMean, TimeBodyAngularVelocityZMean, TimeBodyAngularVelocityXStd, TimeBodyAngularVelocityYStd, TimeBodyAngularVelocityZStd, TimeBodyAngularVelocityJerkXMean, TimeBodyAngularVelocityJerkYMean, TimeBodyAngularVelocityJerkZMean, TimeBodyAngularVelocityJerkXStd,TimeBodyAngularVelocityJerkYStd, TimeBodyAngularVelocityJerkZStd, TimeBodyAccelerationMagnitudeMean, TimeBodyAccelerationMagnitudeStd, TimeGravityAccelerationMagnitudeMean, TimeGravityAccelerationMagnitudeStd, TimeBodyAccelerationJerkMagnitudeMean, TimeBodyAccelerationJerkMagnitudeStd, TimeBodyAngularVelocityMagnitudeMean, TimeBodyAngularVelocityMagnitudeStd, TimeBodyAngularVelocityJerkMagnitudeMean, TimeBodyAngularVelocityJerkMagnitudeStd, FrequencyBodyAccelerationXMean, FrequencyBodyAccelerationYMean, FrequencyBodyAccelerationZMean, FrequencyBodyAccelerationXStd, FrequencyBodyAccelerationYStd, FrequencyBodyAccelerationZStd, FrequencyBodyAccelerationJerkXMean, FrequencyBodyAccelerationJerkYMean, FrequencyBodyAccelerationJerkZMean, FrequencyBodyAccelerationJerkXStd, FrequencyBodyAccelerationJerkYStd, FrequencyBodyAccelerationJerkZStd, FrequencyBodyAngularVelocityXMean, FrequencyBodyAngularVelocityYMean, FrequencyBodyAngularVelocityZMean, FrequencyBodyAngularVelocityXStd, FrequencyBodyAngularVelocityYStd, FrequencyBodyAngularVelocityZStd, FrequencyBodyAccelerationMagnitudeMean, FrequencyBodyAccelerationMagnitudeStd, FrequencyBodyAccelerationJerkMagnitudeMean, FrequencyBodyAccelerationJerkMagnitudeStd, FrequencyBodyAngularVelocityMagnitudeMean, FrequencyBodyAngularVelocityMagnitudeStd, FrequencyBodyAngularVelocityJerkMagnitudeMean, FrequencyBodyAngularVelocityJerkMagnitudeStd
 
 
-Dimensions of the dataset
-Summary of the data
-Variables present in the dataset
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
-
-### Variable 1 (repeat this section for all variables in the dataset) Short description of what the variable describes.
-
-Some information on the variable including:
-
-Class of the variable
-Unique values/levels of the variable
-Unit of measurement (if no unit of measurement list this as well)
-In case names follow some schema, describe how entries were constructed (for example time-body-gyroscope-z has 4 levels of descriptors. Describe these 4 levels).
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
-
-#### Notes on variable 1: If available, some additional notes on the variable not covered elsewehere. If no notes are present leave this section out.
 
