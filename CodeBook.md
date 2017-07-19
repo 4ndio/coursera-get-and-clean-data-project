@@ -34,8 +34,8 @@ to construct the variables. There is no need to duplicate that information here.
 
 ### Combining test and train data
 
-The original data set has two sets of files: training data files and test data files.  
-We combine the test and train data sets using OS level file manipulations (using the "cat" operation on a UNIX-based system). 
+The original data set has two sets of files: training data files (subject_train.txt, X_train.txt, y_train.txt) and test data files (subject_test.txt, X_test.txt, y_test.txt).  
+We combine the training and test data sets using OS level file manipulations (using the "cat" operation on a UNIX-based system). 
 
 The resulting data sets are stored in three files:
 * subject_all.txt
@@ -43,8 +43,6 @@ The resulting data sets are stored in three files:
 * y_all.txt
 
 ## Creating the tidy datafile
-
-### Guide to create the tidy data file Description on how to create the tidy data file (1. download the data, ...)/
 
 Here are the steps taken in run_analysis.R to create the tidy data file:
 1. As described above, the original data is downloaded and combined.
@@ -67,7 +65,29 @@ Here are the steps taken in run_analysis.R to create the tidy data file:
 
 ### Cleaning of the data Short, high-level description of what the cleaning script does. link to the readme document that describes the code in greater detail
 
-## Description of the variables in the tiny_data.txt file General description of the file including:
+## Description of the table stored in feature_averages_per_subject_activity.txt
+
+The table has 180 rows and 68 columns. 
+
+The first two columns are SubjectId and Activity, and each row has a unique (SubjectId,Activity) pair.  There are 30 unique SubjectIds and 6 unique Activities for a total of 30*6=180 rows.  
+
+The remaining columns correspond to the 66 observed variables that involve either a mean or standarda deviation.  The values given in each column is the average of that variable over all observations for that (SubjectId, Activity) pair.
+
+Each observed variable has the form
+* DomainFilterVariable[Jerk]MagnitudeStatistic
+where
+* Domain is either "Time" or "Frequency"
+* Filter is either "Body" or "Gravity"
+* Variable is either "Acceleration" or "AngularVelocity"
+* Jerk is optional (is either "Jerk" or "")
+* Component is either "X", "Y", "Z", or "Magnitude"
+* Statistic is either "Mean" or "Std"
+
+Not every possible combination allowed by the above rules is used.  The are 128 possible combinations, but only 66 correspond to actual observed variables (columns).
+
+The observed variables (columns) are
+* TimeBodyAccelerationXMean, TimeBodyAccelerationYMean, TimeBodyAccelerationZMean, TimeBodyAccelerationXStd, TimeBodyAccelerationYStd, TimeBodyAccelerationZStd, TimeGravityAccelerationXMean, TimeGravityAccelerationYMean, TimeGravityAccelerationZMean, TimeGravityAccelerationXStd, TimeGravityAccelerationYStd, TimeGravityAccelerationZStd, TimeBodyAccelerationJerkXMean, TimeBodyAccelerationJerkYMean, TimeBodyAccelerationJerkZMean, TimeBodyAccelerationJerkXStd, TimeBodyAccelerationJerkYStd, TimeBodyAccelerationJerkZStd, TimeBodyAngularVelocityXMean, TimeBodyAngularVelocityYMean, TimeBodyAngularVelocityZMean, TimeBodyAngularVelocityXStd, TimeBodyAngularVelocityYStd, TimeBodyAngularVelocityZStd, TimeBodyAngularVelocityJerkXMean, TimeBodyAngularVelocityJerkYMean, TimeBodyAngularVelocityJerkZMean, TimeBodyAngularVelocityJerkXStd,TimeBodyAngularVelocityJerkYStd, TimeBodyAngularVelocityJerkZStd, TimeBodyAccelerationMagnitudeMean, TimeBodyAccelerationMagnitudeStd, TimeGravityAccelerationMagnitudeMean, TimeGravityAccelerationMagnitudeStd, TimeBodyAccelerationJerkMagnitudeMean, TimeBodyAccelerationJerkMagnitudeStd, TimeBodyAngularVelocityMagnitudeMean, TimeBodyAngularVelocityMagnitudeStd, TimeBodyAngularVelocityJerkMagnitudeMean, TimeBodyAngularVelocityJerkMagnitudeStd, FrequencyBodyAccelerationXMean, FrequencyBodyAccelerationYMean, FrequencyBodyAccelerationZMean, FrequencyBodyAccelerationXStd, FrequencyBodyAccelerationYStd, FrequencyBodyAccelerationZStd, FrequencyBodyAccelerationJerkXMean, FrequencyBodyAccelerationJerkYMean, FrequencyBodyAccelerationJerkZMean, FrequencyBodyAccelerationJerkXStd, FrequencyBodyAccelerationJerkYStd, FrequencyBodyAccelerationJerkZStd, FrequencyBodyAngularVelocityXMean, FrequencyBodyAngularVelocityYMean, FrequencyBodyAngularVelocityZMean, FrequencyBodyAngularVelocityXStd, FrequencyBodyAngularVelocityYStd, FrequencyBodyAngularVelocityZStd, FrequencyBodyAccelerationMagnitudeMean, FrequencyBodyAccelerationMagnitudeStd, FrequencyBodyAccelerationJerkMagnitudeMean, FrequencyBodyAccelerationJerkMagnitudeStd, FrequencyBodyAngularVelocityMagnitudeMean, FrequencyBodyAngularVelocityMagnitudeStd, FrequencyBodyAngularVelocityJerkMagnitudeMean, FrequencyBodyAngularVelocityJerkMagnitudeStd
+
 
 Dimensions of the dataset
 Summary of the data
@@ -86,6 +106,3 @@ In case names follow some schema, describe how entries were constructed (for exa
 
 #### Notes on variable 1: If available, some additional notes on the variable not covered elsewehere. If no notes are present leave this section out.
 
-## Sources Sources you used if any, otherise leave out.
-
-## Annex If you used any code in the codebook that had the echo=FALSE attribute post this here (make sure you set the results parameter to 'hide' as you do not want the results to show again)
