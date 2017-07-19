@@ -11,15 +11,10 @@ In summary, the script downloads data collected from accelerometers from the Sam
 
 A detailed description of the tidy data file (feature_averages_per_subject_activity.txt) is givin in [CodeBook.md](CodeBook.md).
 
-## Choices made regarding what is "tidy"
-
-
-
 ## Details of the script run_analysis.R
 
 The script downloads the dataset from 
-* https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-into the working directory.  
+* https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.  
 
 The training and test data sets are combined using system file manipulations (using the "cat" operation on a Mac). 
 
@@ -42,8 +37,19 @@ Here are the steps taken in run_analysis.R to create the tidy data file:
 5. The measurement data in X_all.txt is partially loaded, with only the columns (feature names) containing "mean()" or "std()" being loaded.
 6. The measurement data is combined with the data in subject_all.txt and y_all.txt using the cbind function.
 7. The resulting table has columns SubjectId, Activity, and 66 observational variable columns (features)
-8. The table is "grouped by" (SubjectId, Activity), and then mean of each feature as calculated to construct a new table: data_averages.
+8. The table is "grouped by" (SubjectId, Activity), and then a new table (data_averages) is constructed by calculating the mean of each feature over each group.
 9. Finally, the columns of data_averages are re-ordered into the following ordering:
   * SubjectId, Activity, TimeBodyAccelerationMeanX, TimeBodyAccelerationMeanY, ... [64 more measurement variables]
 
+## Choices made regarding what is "tidy data"
 
+We had (at least) two options for the basic format of the tidy data:
+1. Wide table (our choice), in which each "feature" in the original table becomes a column variable.
+2. Long table (not our choice), in which all of the original "features" become "factors" of a single column.
+    * The single column could then be split into multiple columns, since the "features" really have sub-features such as "t or f", "Acc or Gyro", "Body or Gravity", ect.
+
+We chose the wide table format for several reasons:
+1. In the wide format, each row corresponds to a complete set of measurements that were all measured together in a single trial.
+2. A likely application of the data set is the use of a machine learning algorithm to predict the activity (stored in each row of y_test.txt) based on the corresponding set of measurements (stored in each row of X_test.txt).
+    * Machine learning algorithms typically want the response (row of y_test.txt) to be in the same row as all of the predictors (row of X_test.txt).
+    * The fact that the original data sets are labelled as "y" and "X" is hightly indicative that such a machine learning algorithm will be used.
