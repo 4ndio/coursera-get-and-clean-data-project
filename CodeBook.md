@@ -51,7 +51,7 @@ Here are the steps taken in run_analysis.R to create the tidy data file:
 2. Using the list of features in features.txt, a list of feature names containing either "mean()" or "std()" is created (to be used later in step 6).
 3. The feature names are altered to make the names more descriptive according to the following string transformations:
   * mean -> Mean
-  * std -> St
+  * std -> Std
   *  Acc -> Acceleration
   *  Gyro -> AngularVelocity
   *  Mag -> Magnitude
@@ -61,7 +61,9 @@ Here are the steps taken in run_analysis.R to create the tidy data file:
 4. the feature names are further cleaned by removing all parentheses and dashes.
 5. The activity names are transformed from strings to factors.
 6. The measurement data in X_all.txt is loaded, with only the columns (feature names) containing "mean()" or "std()" loaded.
-7. 
+7. The measurement data is combined with the data in subject_all.txt and y_all.txt using the cbind function.
+8. The resulting table's columns are moved into the following ordering:
+  * SubjectId, Activity, TimeBodyAccelerationMeanX, TimeBodyAccelerationMeanY, ... [64 more measurement variables]
 
 ### Cleaning of the data Short, high-level description of what the cleaning script does. link to the readme document that describes the code in greater detail
 
