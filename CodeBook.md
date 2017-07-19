@@ -1,16 +1,19 @@
 # CodeBook for the data stored in feature_averages_per_subject_activity.txt
 
-This is the CodeBook for the course project for Courera's Get and Clean Data class
+This is the CodeBook for the course project for Courera's Get and Clean Data class.
 
 ## Study design and data processing
 
 The purpose of this project is to transform a subset of a messy data set into a tidy dataset.
 There is no study design for this project, because no study is conducted.
 
-All of the data manipulations described in this CodeBook can be found in the script
+All of the data manipulations described in this CodeBook can be found in the following script:
 * run_analysis.R
-Included in the script are the 
-downloading of the original data and the combining of the test and train data sets).
+
+The script  
+downloads the original data set,
+combines the original training and test data sets,
+and then constructs a tidy data set from a subset of the full original data set.
 
 ### Collection of the raw data.
 
@@ -37,7 +40,7 @@ Here are the steps taken in run_analysis.R to create the tidy data file:
 1. As described above, the original data is downloaded and combined.
 2. Using the list of features in features.txt, a list of feature names containing either "mean()" or "std()" is created (to be used later in step 6).
 3. The feature names are altered to make the names more descriptive according to the following string transformations:
-  * mean -> Mean
+    * mean -> Mean
   * std -> Std
   *  Acc -> Acceleration
   *  Gyro -> AngularVelocity
