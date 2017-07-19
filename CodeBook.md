@@ -1,6 +1,6 @@
 # CodeBook for the data stored in feature_averages_per_subject_activity.txt
 
-This is the CodeBook for the course project for Courera's Get and Clean Data class.
+This is the CodeBook for the course project for Coursera's Get and Clean Data class.
 
 ## Study design and data processing
 
@@ -33,7 +33,7 @@ The resulting data sets are stored in three files:
 
 
 
-## Creating the tidy datafile
+## Creating the tidy data file
 
 The details for how the tidy data file is created are given in this repository's [README](README.md).
 
@@ -43,13 +43,13 @@ To summarize, the three tables (subject_all.txt, X_all.txt, and y_all.txt) are c
 
 The table has 180 rows and 68 columns (in addition to the header row). 
 
-The first two columns are SubjectId and Activity, and each row has a unique (SubjectId,Activity) pair.  There are 30 unique SubjectIds and 6 unique Activities for a total of 30*6=180 rows.  
+The first two columns are SubjectId and Activity, and each row has a unique (SubjectId, Activity) pair.  There are 30 unique SubjectIds and 6 unique Activities for a total of 30*6=180 rows.  
 
 SubjectId is an integer in the range 1-30.
 
 Activity is a factor with 6 Levels: Walking, WalkingUpstairs, WalkingDownstairs, Sitting, Standing, Laying.
 
-The remaining columns correspond to the 66 observed variables that involve either a mean or a standard deviation.  For each variable the value given in the table is the average of that variable over all observations for the given (SubjectId, Activity) pair.
+The remaining columns correspond to the 66 observed variables that involve either a mean or a standard deviation.  For each variable, the value given in the table is the average of that variable over all observations for the given (SubjectId, Activity) pair.
 
 Each of the observed variables is a double, normalized to be in the range [-1,1].
 
@@ -61,7 +61,7 @@ where
 * Domain is either "Time" or "Frequency"
 * Filter is either "Body" or "Gravity"
 * Variable is either "Acceleration" or "AngularVelocity"
-* Jerk is optional (is either "Jerk" or "")
+* Jerk is optional (either "Jerk" or "")
 * Component is either "X", "Y", "Z", or "Magnitude"
 * Statistic is either "Mean" or "Std"
 
