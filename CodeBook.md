@@ -4,16 +4,13 @@ This is the CodeBook for the course project for Courera's Get and Clean Data cla
 
 ## Study design and data processing
 
-The purpose of this project is to transform a subset of a messy data set into a tidy dataset.
+The purpose of this project is to transform a subset of a messy data set into a tidy data set.
 There is no study design for this project, because no study is conducted.
 
 All of the data manipulations described in this CodeBook can be found in the following script:
 * run_analysis.R
 
-The script  
-downloads the original data set,
-combines the original training and test data sets,
-and then constructs a tidy data set from a subset of the full original data set.
+The script downloads the original data set, combines the original training and test data sets, and then constructs a tidy data set from a subset of the full original data set.
 
 ### Collection of the raw data.
 
@@ -38,7 +35,7 @@ The resulting data sets are stored in three files:
 
 ## Creating the tidy datafile
 
-The details for how the tidy data file is created are given in this repository's [README](../blob/master/README.md).
+The details for how the tidy data file is created are given in this repository's [README](README.md).
 
 To summarize, the three tables (subject_all.txt, X_all.txt, and y_all.txt) are combined into a single table, observational variable names are altered to be more descriptive, and activity names are converted from strings into factors.  Some processing of the data (calculating the average of each observation variable grouped by subject and activity) is done, as described in the [README](../blob/master/README.md).
 
