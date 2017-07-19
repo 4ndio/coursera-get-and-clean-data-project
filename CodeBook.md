@@ -34,26 +34,13 @@ The resulting data sets are stored in three files:
 * X_all.txt
 * y_all.txt
 
+
+
 ## Creating the tidy datafile
 
-Here are the steps taken in run_analysis.R to create the tidy data file:
-1. As described above, the original data is downloaded and combined.
-2. Using the list of features in features.txt, a list of feature names containing either "mean()" or "std()" is created (to be used later in step 6).
-3. The feature names are altered to make the names more descriptive according to the following string transformations:
-    * mean -> Mean
-  * std -> Std
-  *  Acc -> Acceleration
-  *  Gyro -> AngularVelocity
-  *  Mag -> Magnitude
-  *  ^t -> Time (the ^ indicates beginning of feature name)
-  *  ^f -> Frequency (the ^ indicates beginning of feature name)
-  * BodyBody -> Body (the appearance of "BodyBody" instead of "Body" appears to be a mistake in the original data)
-4. the feature names are further cleaned by removing all parentheses and dashes.
-5. The activity names are transformed from strings to factors.
-6. The measurement data in X_all.txt is loaded, with only the columns (feature names) containing "mean()" or "std()" loaded.
-7. The measurement data is combined with the data in subject_all.txt and y_all.txt using the cbind function.
-8. The resulting table's columns are moved into the following ordering:
-  * SubjectId, Activity, TimeBodyAccelerationMeanX, TimeBodyAccelerationMeanY, ... [64 more measurement variables]
+The details for how the tidy data file is created are given in this repository's [README](../blob/master/README.md).
+
+To summarize, the three tables (subject_all.txt, X_all.txt, and y_all.txt) are combined into a single table, observational variable names are altered to be more descriptive, and activity names are converted from strings into factors.  Some processing of the data (calculating the average of each observation variable grouped by subject and activity) is done, as described in the [README](../blob/master/README.md).
 
 ### Cleaning of the data Short, high-level description of what the cleaning script does. link to the readme document that describes the code in greater detail
 
